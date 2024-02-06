@@ -1,0 +1,33 @@
+.container{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    text-align: center;
+}
+
+.Calculator{
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Row{
+    width: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 2px solid orange;
+}
+
+.operand0{
+    width: 110px;
+}
+
+button{
+    height: 50px;
+    width: 50px;
+}
