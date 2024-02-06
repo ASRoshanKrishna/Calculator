@@ -9,35 +9,35 @@
 <body>
     <div class="container">
         <div class="Calculator">
-            <div class="display"><div class="display0">9</div></div>
+            <div class="display"><div class="display0"></div></div>
             <div class="Row">
                 <button class="operator">AC</button>
                 <button class="operator">C</button>
                 <button class="operator">%</button>
-                <button class="operator">/</button>
+                <button class="operator" onclick="dis('/')">/</button>
             </div>
             <div class="Row">
-                <button class="operand">7</button>
-                <button class="operand">8</button>
-                <button class="operand">9</button>
-                <button class="operator">*</button>
+                <button id="operand" value="7" onclick="dis(7)">7</button>
+                <button id="operand" value="8" onclick="dis(8)">8</button>
+                <button id="operand" value="9" onclick="dis(9)">9</button>
+                <button class="operator" onclick="dis('*')">*</button>
             </div>
             <div class="Row">
-                <button class="operand">4</button>
-                <button class="operand">5</button>
-                <button class="operand">6</button>
-                <button class="operator">-</button>
+                <button id="operand" value="4" onclick="dis(4)">4</button>
+                <button id="operand" value="5" onclick="dis(5)">5</button>
+                <button id="operand" value="6" onclick="dis(6)">6</button>
+                <button class="operator" onclick="dis('-')">-</button>
             </div>
             <div class="Row">
-                <button class="operand">2</button>
-                <button class="operand">3</button>
-                <button class="operand">4</button>
-                <button class="operator">+</button>
+                <button id="operand" value="1" onclick="dis(1)">1</button>
+                <button id="operand" value="2" onclick="dis(2)">2</button>
+                <button id="operand" value="3" onclick="dis(3)">3</button>
+                <button class="operator" onclick="dis('+')">+</button>
             </div>
             <div class="Row">    
-                <button class="operand0">0</button>
-                <button class="operand">.</button>
-                <button class="operator">=</button>
+                <button id="operand0" value="0" onclick="dis(0)">0</button>
+                <button id="operand">.</button>
+                <button class="operator" onclick="dis('=')">=</button>
             </div>
         </div>
     </div>
