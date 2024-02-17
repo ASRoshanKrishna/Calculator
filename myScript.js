@@ -50,8 +50,10 @@ function dis(n){
         if(typeof n === "number" && d == 0)
         variable = variable*10 + n;
         else{
-            if(n=="." && d==0 || n!=".")
-            variable = variable + n;
+            if(n=="." && d==0 || n!="."){
+                variable = variable.toString();
+                variable = variable + n;
+            }
             d = 1;
         }
         display.textContent = variable;
