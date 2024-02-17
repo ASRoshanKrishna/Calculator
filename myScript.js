@@ -2,6 +2,7 @@ let firstOperand = null;
 let operator = null;
 let secondOperand;
 let variable = 0;
+let d = 0;
 
 function operate(operator, firstOperand, secondOperand){
     console.log(operator, firstOperand,secondOperand);
@@ -9,19 +10,19 @@ function operate(operator, firstOperand, secondOperand){
         case "+":
             firstOperand = firstOperand + secondOperand;
             firstOperand = Math.round(firstOperand * 10) / 10;
-            display.textContent = firstOperand;
+            display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;
         case "-":
             firstOperand = firstOperand - secondOperand;
             firstOperand = Math.round(firstOperand * 10) / 10;
-            display.textContent = firstOperand;
+            display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;
         case "*":
             firstOperand = firstOperand * secondOperand;
             firstOperand = Math.round(firstOperand * 10) / 10;
-            display.textContent = firstOperand;
+            display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;
         case "/":
@@ -33,7 +34,7 @@ function operate(operator, firstOperand, secondOperand){
             }
             firstOperand = firstOperand / secondOperand;
             firstOperand = Math.round(firstOperand * 10) / 10;
-            display.textContent = firstOperand;
+            display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;
     }
@@ -42,10 +43,17 @@ function operate(operator, firstOperand, secondOperand){
 const display = document.querySelector(".display0");
 
 function dis(n){
+    console.log("start",operator, firstOperand, secondOperand, variable, d, n);
     if(typeof n === "number" || n=='.'){
         if(firstOperand != null) display.textContent = "";
         console.log("if");
+        if(typeof n === "number" && d == 0)
         variable = variable*10 + n;
+        else{
+            if(n=="." && d==0 || n!=".")
+            variable = variable + n;
+            d = 1;
+        }
         display.textContent = variable;
         console.log(variable);
     }
@@ -55,6 +63,7 @@ function dis(n){
             console.log("first is "+firstOperand);
             variable = 0;
             operator = n;
+            d=0;
             display.textContent = "";
         }
         else if(operator == null){
@@ -66,8 +75,10 @@ function dis(n){
             secondOperand = variable;
             console.log("second is "+secondOperand);
             variable = 0;
-            f = operate(operator, firstOperand,secondOperand);
+            f = operate(operator, parseFloat(firstOperand),parseFloat(secondOperand));
             firstOperand = f;
+            if(firstOperand%1 == 0) d = 0;
+            else d = 1;
             if(n!="=")
             operator = n;
             secondOperand = null;   
@@ -77,12 +88,17 @@ function dis(n){
             if(operator == "="){
                 operator = "+";
                 secondOperand = 0;
-                let f = operate(operator, firstOperand, secondOperand);
+                let f = operate(operator, parseFloat(firstOperand),parseFloat(secondOperand));
             } 
-            firstOperand = f;
+            variable = f;
+            if(variable%1 == 0) d = 0;
+            else d = 1;
+            firstOperand = null;
             operator = null;
         }
     }
-    console.log(operator, firstOperand,secondOperand);
+    if(d==1)
+    console.log("stop",operator, parseFloat(firstOperand),parseFloat(secondOperand), variable, d, n);
+    console.log("stop",operator, firstOperand, secondOperand, variable, d, n);
 }
 
