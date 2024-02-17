@@ -1,6 +1,6 @@
 let firstOperand = null;
 let operator = null;
-let secondOperand = null;
+let secondOperand = 0;
 let variable = 0;
 
 function operate(operator, firstOperand, secondOperand){
@@ -8,24 +8,28 @@ function operate(operator, firstOperand, secondOperand){
     switch(operator){
         case "+":
             firstOperand = firstOperand + secondOperand;
+            firstOperand = Math.round(firstOperand * 10) / 10;
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
             break;
         case "-":
             firstOperand = firstOperand - secondOperand;
+            firstOperand = Math.round(firstOperand * 10) / 10;
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
             break;
         case "*":
             firstOperand = firstOperand * secondOperand;
+            firstOperand = Math.round(firstOperand * 10) / 10;
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
             break;
         case "/":
             firstOperand = firstOperand / secondOperand;
+            firstOperand = Math.round(firstOperand * 10) / 10;
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
@@ -36,7 +40,7 @@ function operate(operator, firstOperand, secondOperand){
 const display = document.querySelector(".display0");
 
 function dis(n){
-    if(typeof n === "number"){
+    if(typeof n === "number" || n=='.'){
         if(firstOperand != null) display.textContent = "";
         console.log("if");
         variable = variable*10 + n;
@@ -57,12 +61,18 @@ function dis(n){
             secondOperand = variable;
             console.log("second is "+secondOperand);
             variable = 0;
-            let f = operate(operator, firstOperand,secondOperand);
+            f = operate(operator, firstOperand,secondOperand);
             firstOperand = f;
             operator = n;
             secondOperand = null;   
         }
         if(n === "="){
+            console.log(operator, firstOperand,secondOperand);
+            if(operator == "="){
+                operator = "+";
+            } 
+            let f = operate(operator, firstOperand, secondOperand);
+            firstOperand = f;
             operator = null;
         }
     }
