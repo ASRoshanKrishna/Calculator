@@ -1,6 +1,6 @@
 let firstOperand = null;
 let operator = null;
-let secondOperand = 0;
+let secondOperand;
 let variable = 0;
 
 function operate(operator, firstOperand, secondOperand){
@@ -12,28 +12,30 @@ function operate(operator, firstOperand, secondOperand){
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
-            break;
         case "-":
             firstOperand = firstOperand - secondOperand;
             firstOperand = Math.round(firstOperand * 10) / 10;
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
-            break;
         case "*":
             firstOperand = firstOperand * secondOperand;
             firstOperand = Math.round(firstOperand * 10) / 10;
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
-            break;
         case "/":
+            if(secondOperand == 0){
+                let joke = "Dont skip schooling!";
+                display.textContent = joke;
+                console.log(joke);
+                break;
+            }
             firstOperand = firstOperand / secondOperand;
             firstOperand = Math.round(firstOperand * 10) / 10;
             display.textContent = firstOperand;
             console.log(firstOperand)
             return firstOperand;
-            break;
     }
 }
 
@@ -55,7 +57,10 @@ function dis(n){
             operator = n;
             display.textContent = "";
         }
-        else if(operator == null) operator = n;
+        else if(operator == null){
+            console.log("empty");
+            operator = n;
+        }
         else{
             display.textContent = "";
             secondOperand = variable;
@@ -63,6 +68,7 @@ function dis(n){
             variable = 0;
             f = operate(operator, firstOperand,secondOperand);
             firstOperand = f;
+            if(n!="=")
             operator = n;
             secondOperand = null;   
         }
@@ -70,8 +76,9 @@ function dis(n){
             console.log(operator, firstOperand,secondOperand);
             if(operator == "="){
                 operator = "+";
+                secondOperand = 0;
+                let f = operate(operator, firstOperand, secondOperand);
             } 
-            let f = operate(operator, firstOperand, secondOperand);
             firstOperand = f;
             operator = null;
         }
