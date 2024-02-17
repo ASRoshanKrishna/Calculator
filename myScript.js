@@ -3,6 +3,7 @@ let operator = null;
 let secondOperand;
 let variable = 0;
 let d = 0;
+let e = 0;
 
 function operate(operator, firstOperand, secondOperand){
     console.log(operator, firstOperand,secondOperand);
@@ -45,6 +46,7 @@ const display = document.querySelector(".display0");
 function dis(n){
     console.log("start",operator, firstOperand, secondOperand, variable, d, n);
     if(typeof n === "number" || n=='.'){
+        
         if(firstOperand != null) display.textContent = "";
         console.log("if");
         if(typeof n === "number" && d == 0)
@@ -60,16 +62,32 @@ function dis(n){
         console.log(variable);
     }
     else{
-        if(firstOperand == null){
+        if(firstOperand && !operator){
+            if(variable!=null)
+            firstOperand = variable;
+            variable = 0;
+            operator = n;
+        }
+        else if(firstOperand == null){
             firstOperand = variable;
             console.log("first is "+firstOperand);
             variable = 0;
             operator = n;
             d=0;
             display.textContent = "";
+            if(n=='%'){
+                firstOperand = parseFloat(firstOperand) / 100;
+                display.textContent = firstOperand;
+                if(firstOperand%1==0) d =0;
+                else d = 1;
+                variable = null;
+                operator = null;
+            }
         }
         else if(operator == null){
             console.log("empty");
+            firstOperand = variable;
+            variable = 0;
             operator = n;
         }
         else{
@@ -95,8 +113,10 @@ function dis(n){
             variable = f;
             if(variable%1 == 0) d = 0;
             else d = 1;
-            firstOperand = null;
+            firstOperand = variable;
+            variable = null;
             operator = null;
+            e = 1;
         }
     }
     if(d==1)
