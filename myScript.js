@@ -10,31 +10,31 @@ function operate(operator, firstOperand, secondOperand){
     switch(operator){
         case "+":
             firstOperand = firstOperand + secondOperand;
-            firstOperand = Math.round(firstOperand * 10) / 10;
+            firstOperand = Math.round(firstOperand * 100) / 100;
             display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;
         case "-":
             firstOperand = firstOperand - secondOperand;
-            firstOperand = Math.round(firstOperand * 10) / 10;
+            firstOperand = Math.round(firstOperand * 100) / 100;
             display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;
         case "*":
             firstOperand = firstOperand * secondOperand;
-            firstOperand = Math.round(firstOperand * 10) / 10;
+            firstOperand = Math.round(firstOperand * 100) / 100;
             display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;
         case "/":
             if(secondOperand == 0){
-                let joke = "Dont skip schooling!";
+                let joke = "You silly!";
                 display.textContent = joke;
                 console.log(joke);
                 break;
             }
             firstOperand = firstOperand / secondOperand;
-            firstOperand = Math.round(firstOperand * 10) / 10;
+            firstOperand = Math.round(firstOperand * 100) / 100;
             display.textContent = parseFloat(firstOperand);
             console.log(firstOperand)
             return firstOperand;

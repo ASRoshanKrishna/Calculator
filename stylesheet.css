@@ -1,15 +1,20 @@
+body{
+    background: linear-gradient(111.5deg, rgb(20, 100, 196) 0.4%, rgb(33, 152, 214) 100.2%);
+}
+
 .container{
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 650px;
-    
 }
 
 .Calculator{
-    border: 2px solid green;
+    border: 3px solid rgb(33, 38, 51);
+    border-radius: 4%;
+    background-color: rgb(46, 57, 81);
+    box-shadow: 0 10px 80px -15px rgba(0, 0, 0, 1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,33 +22,71 @@
 }
 
 .display{
-    border: 2px solid purple;
+    border-radius: 3%;
+    background-image: linear-gradient(rgb(36, 38, 42), rgb(36, 43, 59));
+    color:  rgb(33, 152, 214);
     width: 330px;
     height: 100px;
-    margin: 5px;
+    margin: 15px;
     display: flex;
     justify-content: right;
     align-items: flex-end;
 }
 
 .display0{
-    font-size: xx-large;
+    margin-right: 10px;
+    background-image: linear-gradient(rgb(36, 38, 42), rgb(36, 43, 59));
+    color:  rgb(33, 152, 214);
+    font-size: 250%;
 }
 
 .Row{
     width: 350px;
+    margin-bottom: 1%;
     display: flex;
     justify-content: space-evenly;
-    border: 2px solid orange;
+    border-radius: 5%;
+    background-color: rgb(46, 57, 81);
 }
 
 #operand0{
-    width: 170px;
+    width: 167px;
+    border-radius: 6%;
+    margin-bottom: 2%;
+}
+
+.operator{
+    background-color: rgb(33, 43, 65);
 }
 
 button{
-    font-size: large;
+    border-radius: 5%;
+    color:  rgb(33, 152, 214);
+    background-color: rgb(46, 57, 81);
+    font-size: 170%;
     text-align: center;
-    height: 80px;
+    height: 75px;
     width: 80px;
+}
+
+button:hover {
+    background-color: rgb(63, 78, 110);
+}
+
+button:active {
+    background-color: rgb(63, 78, 110);
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+a{
+    color: #000;
+    text-decoration: none;
 }
