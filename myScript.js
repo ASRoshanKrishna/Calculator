@@ -43,6 +43,16 @@ function operate(operator, firstOperand, secondOperand){
 
 const display = document.querySelector(".display0");
 
+function perc(){
+    if(variable) firstOperand = parseFloat(variable) / 100;
+    else firstOperand = parseFloat(firstOperand) / 100;
+    display.textContent = firstOperand;
+    if(firstOperand%1==0) d =0;
+    else d = 1;
+    variable = null;
+    operator = null;
+}
+
 function dis(n){
     console.log("start",operator, firstOperand, secondOperand, variable, d, n);
     if(typeof n === "number" || n=='.'){
@@ -67,6 +77,7 @@ function dis(n){
             firstOperand = variable;
             variable = 0;
             operator = n;
+            d=0;
         }
         else if(firstOperand == null){
             firstOperand = variable;
@@ -75,14 +86,6 @@ function dis(n){
             operator = n;
             d=0;
             display.textContent = "";
-            if(n=='%'){
-                firstOperand = parseFloat(firstOperand) / 100;
-                display.textContent = firstOperand;
-                if(firstOperand%1==0) d =0;
-                else d = 1;
-                variable = null;
-                operator = null;
-            }
         }
         else if(operator == null){
             console.log("empty");
