@@ -4,9 +4,29 @@ let secondOperand;
 let variable = 0;
 let d = 0;
 let e = 0;
+let basicop = null;
+let idname;
+let opn;
+
+function opcolor(opn){
+    for(let i=1;i<=4;i++){
+        if(i!=opn){
+            idname = '#op'+i;
+            console.log(idname);
+            basicop = document.querySelector(idname);
+            basicop.style.backgroundColor = "rgb(33, 43, 65)";
+        }
+    }
+    idname = '#op'+opn;
+    basicop = document.querySelector(idname);
+    basicop.style.backgroundColor = "white";
+}
 
 function operate(operator, firstOperand, secondOperand){
     console.log(operator, firstOperand,secondOperand);
+    idname = '#op'+opn;
+    basicop = document.querySelector(idname);
+    basicop.style.backgroundColor = "rgb(33, 43, 65)"
     switch(operator){
         case "+":
             firstOperand = firstOperand + secondOperand;
@@ -72,11 +92,17 @@ function dis(n){
         console.log(variable);
     }
     else{
+        if(n == '/') opn = 1;
+        else if(n == '*') opn = 2;
+        else if(n == '-') opn = 3;
+        else if(n == '+') opn = 4;
+        console.log(opn);
         if(firstOperand && !operator){
             if(variable!=null)
             firstOperand = variable;
             variable = 0;
             operator = n;
+            opcolor(opn);
             d=0;
         }
         else if(firstOperand == null){
@@ -84,14 +110,15 @@ function dis(n){
             console.log("first is "+firstOperand);
             variable = 0;
             operator = n;
+            opcolor(opn);
             d=0;
-            display.textContent = "";
         }
         else if(operator == null){
             console.log("empty");
             firstOperand = variable;
             variable = 0;
             operator = n;
+            opcolor(opn);
         }
         else{
             display.textContent = "";
@@ -104,9 +131,13 @@ function dis(n){
             else d = 1;
             if(n!="=")
             operator = n;
+            opcolor(opn);
             secondOperand = null;   
         }
         if(n === "="){
+            idname = '#op'+opn;
+            basicop = document.querySelector(idname);
+            basicop.style.backgroundColor = "rgb(33, 43, 65)"
             console.log(operator, firstOperand,secondOperand);
             if(operator == "="){
                 operator = "+";
@@ -126,4 +157,3 @@ function dis(n){
     console.log("stop",operator, parseFloat(firstOperand),parseFloat(secondOperand), variable, d, n);
     console.log("stop",operator, firstOperand, secondOperand, variable, d, n);
 }
-
