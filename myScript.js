@@ -51,7 +51,8 @@ function operate(operator, firstOperand, secondOperand){
                 let joke = "You silly!";
                 display.textContent = joke;
                 console.log(joke);
-                break;
+                firstOperand = null;
+                return firstOperand;
             }
             firstOperand = firstOperand / secondOperand;
             firstOperand = Math.round(firstOperand * 100) / 100;
@@ -105,7 +106,7 @@ function dis(n){
             opcolor(opn);
             d=0;
         }
-        else if(firstOperand && operator && variable == 0){
+        else if(firstOperand && operator && variable == 0 && typeof n != "number" && n != "="){
             operator = n;
             opcolor(opn);
         }
