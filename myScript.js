@@ -84,6 +84,7 @@ function dis(n){
         variable = variable*10 + n;
         else{
             if(n=="." && d==0 || n!="."){
+                if(variable == null) variable = "";
                 variable = variable.toString();
                 variable = variable + n;
             }
