@@ -2,11 +2,22 @@ let firstOperand = null;
 let operator = null;
 let secondOperand = null;
 let variable = 0;
+let disvariable = 0;
 let d = 0;
 let e = 0;
 let basicop = null;
 let idname;
 let opn;
+let z;
+
+function backspace(){
+    if(typeof z == "number"){
+        disvariable = parseInt(disvariable/10);
+        display.textContent = disvariable;
+        variable = disvariable;
+        console.log("stop",operator, firstOperand, secondOperand, variable, d);
+    }
+}
 
 function opcolor(opn){
     for(let i=1;i<=4;i++){
@@ -31,19 +42,22 @@ function operate(operator, firstOperand, secondOperand){
         case "+":
             firstOperand = firstOperand + secondOperand;
             firstOperand = Math.round(firstOperand * 100) / 100;
-            display.textContent = parseFloat(firstOperand);
+            disvariable = firstOperand;
+            display.textContent = parseFloat(disvariable);
             console.log(firstOperand)
             return firstOperand;
         case "-":
             firstOperand = firstOperand - secondOperand;
             firstOperand = Math.round(firstOperand * 100) / 100;
-            display.textContent = parseFloat(firstOperand);
+            disvariable = firstOperand;
+            display.textContent = parseFloat(disvariable);
             console.log(firstOperand)
             return firstOperand;
         case "*":
             firstOperand = firstOperand * secondOperand;
             firstOperand = Math.round(firstOperand * 100) / 100;
-            display.textContent = parseFloat(firstOperand);
+            disvariable = firstOperand;
+            display.textContent = parseFloat(disvariable);
             console.log(firstOperand)
             return firstOperand;
         case "/":
@@ -56,7 +70,8 @@ function operate(operator, firstOperand, secondOperand){
             }
             firstOperand = firstOperand / secondOperand;
             firstOperand = Math.round(firstOperand * 100) / 100;
-            display.textContent = parseFloat(firstOperand);
+            disvariable = firstOperand;
+            display.textContent = parseFloat(disvariable);
             console.log(firstOperand)
             return firstOperand;
     }
@@ -67,7 +82,8 @@ const display = document.querySelector(".display0");
 function perc(){
     if(variable) firstOperand = parseFloat(variable) / 100;
     else firstOperand = parseFloat(firstOperand) / 100;
-    display.textContent = firstOperand;
+    disvariable = firstOperand;
+    display.textContent = disvariable;
     if(firstOperand%1==0) d =0;
     else d = 1;
     variable = null;
@@ -75,6 +91,7 @@ function perc(){
 }
 
 function dis(n){
+    z=n;
     console.log("start",operator, firstOperand, secondOperand, variable, d, n);
     if(typeof n === "number" || n=='.'){
         
@@ -90,7 +107,8 @@ function dis(n){
             }
             d = 1;
         }
-        display.textContent = variable;
+        disvariable = variable;
+        display.textContent = disvariable;
         console.log(variable);
     }
     else{
@@ -127,7 +145,8 @@ function dis(n){
             opcolor(opn);
         }
         else{
-            display.textContent = "";
+            disvariable = "";
+            display.textContent = disvariable;
             secondOperand = variable;
             console.log("second is "+secondOperand);
             variable = 0;
@@ -143,7 +162,7 @@ function dis(n){
         if(n === "="){
             idname = '#op'+opn;
             basicop = document.querySelector(idname);
-            basicop.style.backgroundColor = "rgb(33, 43, 65)"
+            basicop.style.backgroundColor = "rgb(33, 43, 65)";
             console.log(operator, firstOperand,secondOperand);
             if(operator == "="){
                 operator = "+";
