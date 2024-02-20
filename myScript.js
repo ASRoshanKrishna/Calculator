@@ -1,6 +1,6 @@
 let firstOperand = null;
 let operator = null;
-let secondOperand;
+let secondOperand = null;
 let variable = 0;
 let d = 0;
 let e = 0;
@@ -104,6 +104,10 @@ function dis(n){
             operator = n;
             opcolor(opn);
             d=0;
+        }
+        else if(firstOperand && operator && variable == 0){
+            operator = n;
+            opcolor(opn);
         }
         else if(firstOperand == null){
             firstOperand = variable;
