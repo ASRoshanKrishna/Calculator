@@ -93,8 +93,7 @@ function perc(){
 function dis(n){
     z=n;
     console.log("start",operator, firstOperand, secondOperand, variable, d, n);
-    if(typeof n === "number" || n=='.'){
-        
+    if(typeof n === "number" || n =='.'){
         if(firstOperand != null) display.textContent = "";
         console.log("if");
         if(typeof n === "number" && d == 0)
@@ -182,3 +181,16 @@ function dis(n){
     console.log("stop",operator, parseFloat(firstOperand),parseFloat(secondOperand), variable, d, n);
     console.log("stop",operator, firstOperand, secondOperand, variable, d, n);
 }
+
+document.addEventListener('keydown', (event) => {
+    let kbintvalue = parseInt(event.key);
+    let kbvalue = event.key;
+    if(kbintvalue >=0 && kbintvalue <=9 || kbintvalue == '.'){
+        console.log(typeof kbintvalue, kbintvalue);
+        dis(kbintvalue);
+    }
+    else if(kbvalue == "Backspace"){
+        console.log(typeof kbvalue, kbvalue);
+        backspace();
+    }
+});
