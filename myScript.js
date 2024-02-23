@@ -189,8 +189,18 @@ document.addEventListener('keydown', (event) => {
         console.log(typeof kbintvalue, kbintvalue);
         dis(kbintvalue);
     }
+    else if(kbvalue == '/' || kbvalue == '-' || kbvalue == '*' || kbvalue == '+'){
+        console.log(typeof kbvalue, kbvalue);
+        dis(kbvalue);
+    }
     else if(kbvalue == "Backspace"){
         console.log(typeof kbvalue, kbvalue);
         backspace();
     }
+    else if(kbvalue == "Enter"){
+        console.log(typeof kbvalue, kbvalue);
+        kbvalue = "=";
+        dis(kbvalue);
+    }
+    else console.log(typeof kbvalue, kbvalue);
 });
