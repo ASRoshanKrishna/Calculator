@@ -179,6 +179,5 @@ document.addEventListener('keydown', (event) => {
         kbvalue = "=";
         dis(kbvalue);
     }
-    else console.log(typeof kbvalue, kbvalue);
     document.activeElement.blur()
 });

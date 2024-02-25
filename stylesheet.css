@@ -22,6 +22,7 @@ body{
 }
 
 .display{
+    overflow: auto;
     border-radius: 3%;
     background-image: linear-gradient(rgb(36, 38, 42), rgb(36, 43, 59));
     color:  rgb(33, 152, 214);
